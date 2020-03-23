@@ -7,7 +7,7 @@ namespace ConsoleApp2
     {
        public static void Main(string[] args)
        {
-           var cars = new List<Car>
+           var vehicles = new List<IVehicle>
            {
                new Minivan(5, "BMW", 1),
                new Van(
@@ -15,14 +15,27 @@ namespace ConsoleApp2
                    100000,
                    new Insurance(DateTime.Now, DateTime.Now, "Yuliia Nechyporuk"),
                    "Lada",
-                   10),
-               new Minivan(5, "Kalina", 15)
+                   10,
+                   12000),
+               new Minivan(5, "Kalina", 15),
+               new Bicycle()
            };
 
-           foreach (var car in cars)
+           foreach (IVehicle car in vehicles)
            {
-               Console.WriteLine(car);
+               Console.Write(car.Name + " ");
+               Console.WriteLine("Speed: " + car.GetSpeed());
            }
+
+           IVehicle van = new Van(
+               100,
+               100000,
+               new Insurance(DateTime.Now, DateTime.Now, "Yuliia Nechyporuk"),
+               "Lada",
+               10,
+               12000);
+
+           van.PrintInfo();
        }
     }
 }

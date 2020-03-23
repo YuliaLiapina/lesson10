@@ -7,9 +7,21 @@ namespace ConsoleApp2
         private int maxNumberOfSeats = 10;
         private int numberOfSeats = 4;
 
-        public Minivan(int numberOfSeats, string carName, int id) : base(id, carName)
+        public Minivan(int numberOfSeats, string carName, int id) : base(id, carName, 1000)
         {
             NumberOfSeats = numberOfSeats;
+        }
+
+        public override string Name => "Minivan";
+
+        public override int GetSpeed()
+        {
+            return 150;
+        }
+
+        public override void PrintInfo()
+        {
+            Console.WriteLine(ToString());
         }
 
         public int NumberOfSeats
@@ -26,6 +38,11 @@ namespace ConsoleApp2
                     numberOfSeats = value;
                 }
             }
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + $", Number of seats {NumberOfSeats}";
         }
     }
 }
