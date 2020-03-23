@@ -1,38 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.VisualBasic.CompilerServices;
 
 namespace ConsoleApp2
 {
-    class Program
+   public class Program
     {
-        static void Main(string[] args)
-        {
-            new Puppy();
-        }
+       public static void Main(string[] args)
+       {
+           var cars = new List<Car>
+           {
+               new Minivan(5, "BMW", 1),
+               new Van(
+                   100,
+                   100000,
+                   new Insurance(DateTime.Now, DateTime.Now, "Yuliia Nechyporuk"),
+                   "Lada",
+                   10),
+               new Minivan(5, "Kalina", 15)
+           };
 
-
-        public class Animal
-        {
-            public Animal()
-            {
-                Console.WriteLine("Hi from Animal");
-            }
-        }
-
-        public class Dog : Animal
-        {
-            public Dog() {
-                Console.WriteLine("Hi from Dog");
-            }
-        }
-
-        public class Puppy : Dog
-        {
-            public Puppy()
-            {
-                Console.WriteLine("Hi from Puppy!!");
-            }
-        }
+           foreach (var car in cars)
+           {
+               Console.WriteLine(car);
+           }
+       }
     }
 }
