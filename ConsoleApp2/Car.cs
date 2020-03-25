@@ -2,42 +2,38 @@
 
 namespace ConsoleApp2
 {
-    public class Car : IVehicle
+    public class Car : IVehicle,IDiscounts
     {
-        public Car(int id, string carName, double price)
+        public Car(string carName, int id, double price)
         {
             CarName = carName;
             ID = id;
             Price = price;
         }
 
-        public int ID { get; set; }
-
         public string CarName { get; set; }
-
+        public int ID { get; set; }
         public double Price { get; set; }
 
-        public virtual string Name => "Van";
-        
-        public virtual int GetSpeed()
-        {
-            return 10;
-        }
-
-        public virtual void PrintInfo()
-        {
-            Console.WriteLine(ToString());
-        }
-
+        public virtual string Name => "Car";
         public double GetSale()
         {
             var saleSum = new Random().Next(5, 20);
             return Price - (saleSum / 100.0 * Price);
         }
 
+        public virtual int GetSpeed()
+        {
+            return 50;
+        }
         public override string ToString()
         {
-            return $"Id: {ID}, Name: {CarName}, Price {Price}";
+            return $"ID:{ID}, Name:{CarName}, Price:{Price}";
+        }
+
+        public virtual void PrintInfo()
+        {
+            Console.WriteLine(ToString());
         }
     }
 }

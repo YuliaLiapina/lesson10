@@ -7,27 +7,18 @@ namespace ConsoleApp2
     {
        public static void Main(string[] args)
        {
-           var vehicles = new List<IVehicle>
-           {
-               new Minivan(5, "BMW", 1),
-               new Van(
-                   100,
-                   100000,
-                   new Insurance(DateTime.Now, DateTime.Now, "Yuliia Nechyporuk"),
-                   "Lada",
-                   10,
-                   12000),
-               new Minivan(5, "Kalina", 15),
-               new Bicycle()
-           };
+            var vehicles = new List<IVehicle>
+           { new Van(10,250, new Insurance(DateTime.Now, DateTime.Now,"Elena"),"Van",12345,1200),
+            new Minivan(40,"Minivan",3546,20000),
+            new Bicycle()};
 
-           foreach (IVehicle car in vehicles)
-           {
-               Console.Write(car.Name + " ");
-               Console.WriteLine("Speed: " + car.GetSpeed());
-           }
+            foreach (var car in vehicles)
+            {
+                Console.WriteLine(car.Name + " ");
+                Console.WriteLine("Speed :" + car.GetSpeed());
+            }
 
-           IVehicle van = new Van(
+            IVehicle van = new Van(
                100,
                100000,
                new Insurance(DateTime.Now, DateTime.Now, "Yuliia Nechyporuk"),
@@ -35,7 +26,17 @@ namespace ConsoleApp2
                10,
                12000);
 
-           van.PrintInfo();
-       }
+            van.PrintInfo();
+
+            IVehicle plane = new Airplane();
+            plane.Price = 300;
+
+            plane.PrintInfo();
+
+            IDiscounts plane1 = new Airplane();
+            plane1.GetSale();
+
+            Console.ReadKey();
+        }
     }
 }

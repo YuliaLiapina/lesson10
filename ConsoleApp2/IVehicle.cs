@@ -1,8 +1,10 @@
 ﻿namespace ConsoleApp2
 {
-    public interface IVehicle
+    interface IVehicle
     {
         string Name { get; }
+
+        double Price { get; set; }
 
         int GetSpeed();
 

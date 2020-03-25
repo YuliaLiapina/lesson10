@@ -2,18 +2,23 @@
 
 namespace ConsoleApp2
 {
-    public class Bicycle : IVehicle
+    public class Bicycle : IVehicle,IDiscounts
     {
-        public string Name => "Bicycle!";
+        public string Name => "Bike";
 
+        public double Price { get; set; }
         public int GetSpeed()
         {
-            return 15;
+            return 40;
+        }
+        public void PrintInfo()
+        {
+            Console.WriteLine("Bike!");
         }
 
-        public virtual void PrintInfo()
+        public double GetSale()
         {
-            Console.WriteLine(Name);
+            return 50;
         }
     }
 }

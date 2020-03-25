@@ -8,28 +8,13 @@ namespace ConsoleApp2
         private int carrying = 100;
         private int maxCarrying = 5000;
 
-        public Van(int carrying, int mileage, Insurance insurance, string carName, int id, double price = 1000)
-            : base(id, carName, price)
+        public Van(int mileage, int carrying, Insurance insurance, string carName, int id, double price) : base(carName, id, price)
         {
-            Carrying = carrying;
             Mileage = mileage;
+            Carrying = carrying;
             Insurance = insurance;
+
         }
-
-        public override string Name  => "Van";
-
-        public override int GetSpeed()
-        {
-            return 90;
-        }
-
-        public override void PrintInfo()
-        {
-            Console.WriteLine(ToString());
-        }
-
-        public Insurance Insurance { get; set; }
-
         public int Carrying
         {
             get => carrying;
@@ -60,7 +45,16 @@ namespace ConsoleApp2
                     mileage = value;
                 }
             }
-
         }
+        public Insurance Insurance { get; set; }
+        public override int GetSpeed()
+        {
+            return 100;
+        }
+        public override void PrintInfo()
+        {
+            Console.WriteLine(ToString());
+        }
+        public override string Name => "Van";
     }
 }
